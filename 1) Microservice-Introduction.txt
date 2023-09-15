@@ -1,0 +1,75 @@
+MÝKROSERVÝS MÝMARÝSÝ NEDÝR ?
+
+Mikroservis mimarisi bir uygulamanýn baðýmsýz ve ölçeklendirilebilir, tek bir iþe odaklanmýþ, servislere ayrýlarak geliþtirilmesini ve daðýtýlmasýný saðlayan bir yazýlým geliþtirme yaklaþýmýdýr.
+Bu yaklaþýmda her bir servis uygulamanýn bir iþlevinin sorumluluðunu üstlenmekte ve ihtiyaç doðrultusunda birbiriyle iletiþim kurarak daha büyük bir sistem oluþturmaktadýrlar.
+
+
+DAÐITILABÝLÝRLÝK NEDÝR ?
+
+Bir yazýlýmýn daðýtýk olmasý ya da daðýtýk olarak tasarlanmasý farklý bileþenlerinin veya modüllerinin farklý bilgisayarlarda yahut sunucularda daðýtýlmasý demektir.
+Yani bu mimaride tüm servisleri tek bir sunucuda ayaða kaldýrmaktansa her bir servisin farklý bir sunucuda ayaða kaldýrýlmaktansa her bir servisin farklý bir sunucuda ayaða kaldýrýlabilir olmasý denebilir.
+Daðýtýk olmasý performans, yüksek ölçeklendirilebilirlik, daha iyi verimlilik, yüksek kullanýlabilirlik gibi avantajlar sunmaktadýr. Ayrýca daðýtýk mimaride load balancing imkanýna da sahip olunabilmektedir.
+DevOps bazýnda da yönetilebilirlik daha kolay hale gelir.
+
+
+ÖLÇEKLENDÝRÝLEBÝLÝRLÝK NEDÝR ?
+
+Ölçeklendirilebilirlik bir yazýlým sisteminde artan iþlem yoðunluðunu uygulama performansýný koruyarak karþýlayabilmesi için uygulanan davranýþlardýr. Bu davranýþlar sayesinde sistemden beklenen taleplere karþýn
+uyum saðlanabilmekte ve uygulamanýn sürdürülebilirliði korunaklý hale getirilmektedir. Örnek olarak marketteki kasalarýn müþteri yoðunluðuna göre aktif hale gelmesi denebilir.
+
+ÖLÇEKLEME NASIL GERÇEKLEÞTÝRÝLÝR ?
+
+1) Scale Out (Yatay Ölçeklenebilirlik)
+   Ýþ yükünün birden fazla ayný özelliklerdeki sunucuya daðýtýldýðý yöntemdir. Her bir sunucuda uygulamanýn ya da ilgili servisin bir replikasyonu bulunarak hizmet saðlanmaktadýr. Sunucu sayýsýný arttýrmak.
+
+2) Scale Up (Dikey Ölçeklenebilirlik)
+   Sistemdeki donanýmsal kaynaklarýn artýrýmý ile gerçekleþir.
+
+3) Caching
+   Sýk kullanýlan verilerin Redis gibi caching yapýlarýnda depolanarak sistemin yükünün hafifletilerek ölçeklendirilmesidir.
+
+Mikroservislerde uygulamayý baþtan aþaðý ölçeklendirmektense servislerin yoðunluðuna göre ölçeklendirme davranýþý sergileyebiliriz.
+
+
+MÝKROSERVÝSLERÝN TEMEL PRENSÝPLERÝ NELERDÝR ?
+
+1) Baðýmsýzlýk
+	Her servis birbirinden baðýmsýz olarak geliþtirilir ve daðýtýlýr.
+
+2) Teknoloji Çeþitliliði
+	Her servis farklý teknolojilerle geliþtirilebilir.
+
+3) Ýþlevsel Bölünme
+	Ýþlevsel olarak her servisin farklý bir odaðý vardýr.
+
+4) Hafif Ýletiþim
+	Servisler birbiriyle genellikle asenkron iletiþim kurar. Bu da servisler arasýnda gevþek baðlýlýðý saðlar.
+
+5) Ölçeklendirme
+	Her bir servis ihtiyacýna ve yoðunluðuna göre diðerlerinden baðýmsýz olarak ölçeklendirilebilir.
+
+6) Yüksek Kusur Toleransý
+	Bir servis çöktüðünde diðer servislerin etkilenmemesi ve sistem bütünlüðünün korunmasý oldukça önemlidir
+
+7) Hýzlý Daðýtým
+	Her sistemin kendine ait süreçleri olduðundan bu servislerin güncellenmesi yeniden daðýtýlmasý daha hýzlý olur
+
+
+Mikroservis mimarisi büyük ve karmaþýk uygulama süreçlerinde kullanýlmasý daha uygundur. Ya da yüksek iþ hacmine sahip olan verisel operasyonlarda kullanýcýyý bekletmeksizin
+son kullanýcý deneyimini ideal hale getirebilmek ancak o iþi yapan modülü farklý bir servis olarak ölçeklendirmekten geçmektedir.
+
+
+API GATEWAY NEDÝR ?
+
+API Gateway uygulamalarý merkezi bir nokta üzerinden haberleþtirecek þekilde odaklayan bir bileþendir. Client'ýn yapacaðý istek süreçlerinde hedef servisin yahut servislerin
+konumunu ipsini adresini bilmesine gerek kalmaksýzýn tek bir merkezi nokta üzerinden isteklerin doðru servise yönlendirilmesini saðlamaktadýr. Böylece tüm servisler için tek bir API sunarak
+clientlarýn birden fazla servise baðlanmak yerine merkezi bir API yapýlanmasýyla istek süreçlerinin yönetilmesini saðlamaktadýr. Ayrýca bu sayede kimlik doðrulama ve yetkilendirme sorumluluklarýný da üstlenerek
+servislerin güvenliðini de saðlayabilmektedir. Bu sayede gelen tüm trafiði merkezi bir þekilde denetleyerek uygulama bütünü için gerekli güvenlik protokellerinin yönetilmesini merkezileþtirebilir.
+Ekstradan gelen trafiði dengeli bir þekilde yönlendirerek yük daðýlýmýný (load balancing) optimize edebilir. API sürüm yönetimi ve cacging gibi süreçlerde de desteklerde bulunabilir.
+
+
+EVENT SOURCÝNG NEDÝR ?
+
+Verilerin meydana geldiði olaylar aracýlýðýyla kaydedildiði bir veri modelidir ve mikroservislerde veri bütünlüðünün saðlanmasý ve veri tekrarý sorunlarýýn azaltýlmasý için kullanýlýr.
+
+
