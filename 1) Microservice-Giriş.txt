@@ -73,3 +73,9 @@ EVENT SOURCÝNG NEDÝR ?
 Verilerin meydana geldiði olaylar aracýlýðýyla kaydedildiði bir veri modelidir ve mikroservislerde veri bütünlüðünün saðlanmasý ve veri tekrarý sorunlarýýn azaltýlmasý için kullanýlýr.
 
 
+SERVÝSLER ARASI ÝLETÝÞÝM MODELLERÝ NELERDÝR ? 
+
+Mikroservis mimarisinde servisler arasý iletiþim modelleri teknik olarak senkron ve asenkron olarak deðerlendirilmektedir. 
+
+Senkron Ýletiþim  : Requesti gönderen servis response gelinceye kadar bekler ve geldiði takdirde de iþlemini tammalar. HTTP Requestlerle yapýlýr.
+Asenkron Ýletiþim : Bir servis diðerini beklemeksizin mesaj gönderebilir ve iþlemi tamamlanmasýný beklemeden diðer iþlemlerine geçebilir. RabbitMQ gibi message brokerlarla yapýlabilir.
