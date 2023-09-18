@@ -1,0 +1,34 @@
+APPLICATION MONITORING NEDIR ?
+
+Bir yazýlým uygulamasýnýn çalýþma durumunu performansýný kullaným sürecindeki ya da sonraki potansiyel sorunlarýný sürekli olarak takip etmek ve bu takip neticesinde, uygulamanýn saðlýðýný deðerlendirmek
+performans sorunlarýný tespit etmek ve bu sorunlara karþýn kullanýcý deneyimini kesintiye uðratmaksýzýn ve olumsuz etkilenmesine mahal vermeksizin hýzlý aksiyonlar alabilmek için kritik rol oynayan bir düzendir.
+
+-Performans sorunlarýný tespit etme
+-Sorunlarý önceden belirleme
+-Kullanýcý deneyimini geliþtirme
+-Hýzlý tepki ve çözüm
+-Verimli ölçeklendirme
+-Güvenlik ve hata izleme
+
+Özellikle mikroservis mimarisiyle geliþtirilen bir uygulamanýn monitoring edilmesi ve sürecin hassas bir þekilde loglanmasý, bu daðýtýk yapýnýn ideal bir þekilde çalýþtýðýndan emin olabilmemiz için oldukça önem arz etmektedir.
+Buradaki monitoringin amacý tek bir uygulamanýn güvenilirliðini saðlamak deðil, kümülatif bir iliþki aðýna sahip olan birden fazla servisten meydana gelmiþ bir ekosistemin iþleyiþ durumunu gözlemlemek ve güvenliðini saðlayabilmektir.
+
+
+MÝKROSERVÝSLERDE ÝZLEME VE LOGLAMA HANGÝ YAKLAÞIMLARLA YAPILIR ?
+
+Monitoring
+1-Metrikler : Herbir servisin performans ve güvenilirlik açýsýndan gerekli ölçümlerini metrikler aracýlýðýyla izleyebilirsiniz.
+2-Alerts (Uyarýlar) : Sunucularda, tüketim yahut maliyet açýsýndan tarafýnýzca belirlenmiþ bir eþiðin aþýlmasý veya belirli bir koþulun saðlanmasý neticesinde uyarýlar verebilir ve sorunlara karþýn anýnda haberdar olabilirsiniz.Bu uyarýlar mail veya notification olabilir.
+3-Observatbility (Gözlemlemek) : Servislerin içsel davranýþlarýný ve durumlarýný anlamak için de gözlemlemeyi içermektedir.
+
+Log
+1-Yapýlandýrýlmýþ Loglar (Structured Logging) : Servislerin çalýþma zamanýndaki reflekslerini takip etmemizi ve yorumlamamýzý saðlayan loglardýr. Servisin saðlýk durumunu ve iþlevsel açýdan sürecini anlaþýlabilir hale getirmektedir.
+2-Merkezi Günlük Toplama (Centralized Log Collection) : Tüm mikroservislerin ürettiði loglarý merkezi bir konumda toplamak ve genel deðerlendirmeyi bu noktada gerçekleþtirmektedir. Elasticsearch gibi araçlar kullanýlarak saðlanabilir.
+3-Ýzlenebilirlik (Tracebility) : Clientten gelen talebin iþlenmesi sürecinde tüm servislerdeki akýþýn takip edilmesini ve böylece bir iþ amaçlý kümülatif olarak gerçekleþtirilen iþlevin izini sürmeyi saðlayan bir yöntemdir.
+
+Görselleþtirme için Prometheus, Grafana, ELK gibi toollar kullanýlabilir.
+
+DISTRIBUTED TRACING ÖNEMÝ 
+
+Distributed tracing, mikroservis mimarisinin uygulandýðý çalýþmalarda bir client tarafýndan yapýlan isteðe karþýn iþlenecek verinin farklý servisler ve bileþenlerdeki evrelerini gözlemlememizi ve böylece bu verinin bütünsel olarak iþleme sürecindeki durumlarýný ortaya koyan bir davranýþtýr
+Bu davranýþ sayesinde büyük ve karmaþýk sistemlerde isteklerin izlenmesini ve analiz edilmesini saðlayarak uygulamanýn takip edilebilirliðini verisel boyuta indirgeriz.

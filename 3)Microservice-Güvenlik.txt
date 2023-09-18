@@ -1,0 +1,17 @@
+MIKROSERVÝSLERÝN GÜVENLÝÐÝ NASIL SAÐLANIR ?
+
+Kimlik doðrulama yöntemlerinden bazýlarý :
+-JWT
+-OAuth 2.0
+-OpenID Connect
+
+Yetkilendirme yöntemlerinden bazýlarý :
+-Rol ve izin tabanlý yetkilendirme
+-Merkeziyetçi yetkilendirme sunucusu (Authorization Server)
+-Çok faktörlü kimlik doðrulama
+-Mikroservis düzeyinde yetkilendirme
+
+OAuth 2.0 :
+Uygulamalarýn kaynak sahiplerinin verilerine güvenli bir eriþim yapmasýný saðlayan bir yetkilendirme protokolüdür.
+Tüm kimlik doðrulama ve yetkilendirme sorumluluðunu bir yetkilendirme sunucusu üstlenmektedir.
+

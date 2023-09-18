@@ -6,6 +6,8 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C9152119-5ADB-4376-B912-58F80768B327}"
 	ProjectSection(SolutionItems) = preProject
 		1) Microservice-Giriş.txt = 1) Microservice-Giriş.txt
+		2)Microservice-Tracing.txt = 2)Microservice-Tracing.txt
+		3)Microservice-Güvenlik.txt = 3)Microservice-Güvenlik.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Microservice-Example", "1-Microservice-Example", "{96197536-FB52-41AF-8241-494D8D2ABF3B}"
