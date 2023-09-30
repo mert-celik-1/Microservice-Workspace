@@ -8,17 +8,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		1) Microservice-Giriş.txt = 1) Microservice-Giriş.txt
 		2)Microservice-Tracing.txt = 2)Microservice-Tracing.txt
 		3)Microservice-Güvenlik.txt = 3)Microservice-Güvenlik.txt
+		4)Microservice-Veri Tutarlılığı.txt = 4)Microservice-Veri Tutarlılığı.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Microservice-Example", "1-Microservice-Example", "{96197536-FB52-41AF-8241-494D8D2ABF3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.API", "1-Microservice-Example\Order.API\Order.API.csproj", "{7DB53541-7270-442F-8059-44051FCCBAD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.API", "1-Microservice-Example\Order.API\Order.API.csproj", "{7DB53541-7270-442F-8059-44051FCCBAD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "1-Microservice-Example\Shared\Shared.csproj", "{AB2C020B-9654-4EA1-96CD-255085403F4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "1-Microservice-Example\Shared\Shared.csproj", "{AB2C020B-9654-4EA1-96CD-255085403F4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stock.API", "1-Microservice-Example\Stock.API\Stock.API.csproj", "{5A860FDD-4678-4C4A-B8CE-1DCA09784E9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stock.API", "1-Microservice-Example\Stock.API\Stock.API.csproj", "{5A860FDD-4678-4C4A-B8CE-1DCA09784E9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payment.API", "1-Microservice-Example\Payment.API\Payment.API.csproj", "{1A7F4D3D-F2DB-4E3F-8B8E-B8520969C766}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payment.API", "1-Microservice-Example\Payment.API\Payment.API.csproj", "{1A7F4D3D-F2DB-4E3F-8B8E-B8520969C766}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

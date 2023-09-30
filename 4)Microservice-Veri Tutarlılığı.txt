@@ -1,0 +1,29 @@
+CAP TEOREMÝ NEDÝR ?
+
+Distributed sistemlerin tasarýmýnda karþýlaþýlan temel zorluklarý açýklamaya çalýþan bir teoremdir. Bu teorem ile distrubuted sistemlerdeki üç temel özelliðin ayný anda saðlanamayacaðý iddia edilmekte ve sistem tasarýmýnda
+bu üç özellik arasýnda bir denge kurulmasý gerektiði ortaya koyulmaktadýr. Bu üç özellik Consistency, Availability ve Partition Tolarence'dir.
+
+Consistency (Tutarlýlýk) : Bu terim bir daðýtýk sistemdeki tüm servislerin ayný veriyi ayný anda görmesini ifade etmektedir. Eðer bir sistemin tutarlýlýk garantisi varsa herhangi bir veri yazýldýðýnda veya deðiþtirildiðinde
+bu deðiþiklik tüm servislere hemen yada mümkün mertebe en kýsa zamanda yansýtýlmalýdýr. Bu veri bütünlüðünü korumak için önem arz etmektedir.
+
+Availability (Eriþilebilirlik) : Bir daðýtýk sistemin her zaman istemcilere yanýt verme yeteneði anlamýna gelmektedir. Yani herhangi bir servis herhangi bir hata verdiðinde sistem çökmemeli ve çalýþmaya
+devam etmelidir. Bu yüksek kullanýlabilirlik gereksinimlerine sahip uygulamalar için oldukça kritik bir deðere sahiptir.
+
+Partition Tolerance (Bölüm Toleransý) : Sistemin aðda paket kaybý veya gecikme gibi iletiþim kesintileri yaþandýðý taktirde dahi çalýþmaya devam etme yeteneðini ifade etmektedir. Yani bir veya daha fazla servis
+arasýnda iletiþim kesildiðinde bile sistem iþlemeye devam edebilmelidir.
+
+CAP Teoremi bu üç özelliðinin ayný anda saðlanamayacaðýný iddia etmekte ve illa birinde problem meydana gelebileceðini ifade etmektedir.
+Haliyle geliþtireceðiniz sistemleri tasarlarken bu uygulama için hangi özelliklerin daha önemli ve öncelikli olmasý gerektiðini dikkate almanýz gerekecektir.
+
+
+EVENTUAL CONSISTENCY NEDÝR ?
+
+Distributed sistemlerde veri tutarlýlýðýný ve senkronizasyonunu yönetmek için kullandýðýmýz yöntemlerden biridir. Bir serviste verisel bir deðiþiklik hemen diðer servislere yansýtýlmamakta belirli bir süre sonra veri tüm
+kaynaklarda tutarlý hale getirilmektedir. Nihai tutarlýlýk da diyebiliriz. Sosyal medya platformlarý, online maðaza iþlemleri örnek verilebilir.
+
+STRONG CONSISTENCY NEDÝR ?
+
+Distributed sistemlerdeki tüm servislerde her zaman ayný ve en güncel verinin garantisini saðlamaya dönük bir davranýþý ifade etmektedir. Eventual consistency'deki kýsa zamanlý tutarsýzlýk bunda söz konusu deðildir. Tüm servisleri kilitleyeceðinden
+dolayý yüksek maliyet ve performansta kýsmi düþüþler söz konusu olabilir. Finansal sektör, saðlýk sektörü örnek verilebilir.
+
+Two-Phase Commit (2PC) Nedir ? Nasýl Tasarlanýr ?
