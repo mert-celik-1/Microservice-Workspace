@@ -26,4 +26,21 @@ STRONG CONSISTENCY NEDÝR ?
 Distributed sistemlerdeki tüm servislerde her zaman ayný ve en güncel verinin garantisini saðlamaya dönük bir davranýþý ifade etmektedir. Eventual consistency'deki kýsa zamanlý tutarsýzlýk bunda söz konusu deðildir. Tüm servisleri kilitleyeceðinden
 dolayý yüksek maliyet ve performansta kýsmi düþüþler söz konusu olabilir. Finansal sektör, saðlýk sektörü örnek verilebilir.
 
+
 Two-Phase Commit (2PC) Nedir ? Nasýl Tasarlanýr ?
+
+Strong consistency modeli ile veri tutarlýlýðýný saðlamak için kullanýlan bir protokoldür. Temel amacý tüm kaynaklarda bir iþlemin atomik bir þekilde tamamlanýp tamamlanmadýðýný garantilemektedir.
+Prepare (Hazýrlýk) ve Commit (Taahhüt) Phaselerinden oluþur. Performans sorunlarýna yol açmaktadýr.
+
+Prepare Phase : 
+-Koordinatör kullanýcýdan talebi alýr.
+-Aldýðý talep doðrultusunda yapacaðý iþlemi ilgilendirecek olan tüm nodelere hazýr olup olmadýklarýna dair mesaj gönderir ve tüm katýlýmcýlardan bu mesaja dair dönüþ bekler.
+-Katýlýmcýlarýn hepsinden Ok gibi mesajlarýn gelmesi neticesinde koordinatör ikinci aþamayý baþlatýr.
+-Eðer katýlýmcýlardan en az birinde No gibisinden bir mesaj alýnýrsa veya hiç cevap gelmezse ikinci aþamaya geçilmeden kullanýcýdan gelen talep iptal edilir.
+
+Commit Phase :
+-Koordinatör tüm katýlýmcýlarýn hazýr olduðuna kanaat getirdikten sonra tüm servislerin sorumluluklarý gereði operasyonlarýný baþlatmasý için commit mesajýný gönderir.
+-Koordinatör katýlýmcýlarýn iþlemlerini tamamlamasý üzerine onlardan Ok þeklinde mesaj bekler.
+-Katýlýmcýlarýn hepsinden beklenen yanýt alýndýðý takdirde kullanýcý talebi baþarýyla tamamlamýþ olur.
+-Katýlýmcýlardan en az birinden beklenen yanýt alýnmazsa yada hiç cevap gelmezse iþlem iptal edilecek ve tüm servislerden yaptýklarýnýn geri alýnmasý için abort mesajýný gönderir.
+
